@@ -1,0 +1,40 @@
+#give up should be a wise choise.
+#let me figure out a simple idea.
+#ok ,i got one
+#picture diagrams base on data.
+# coding=gbk
+'''
+#Created on Jul 12, 2014
+#python 科学计算学习：numpy快速处理数据测试
+'''
+import string
+import matplotlib
+import matplotlib.pyplot as plt  
+import numpy as np
+ 
+if __name__ == '__main__':    
+    file = open(r'D:\Python_script\20170205\data.txt', 'r')
+    linesList = file.readlines()
+#   print(linesList)
+    linesList = [line.strip().split() for line in linesList]
+    file.close()    
+    #print(linesList)
+    #print(linesList)
+#   years = [string.atof(x[0]) for x in linesList]
+    years = [x[0] for x in linesList]
+    #print(years)
+    price = [x[1] for x in linesList]
+    #print(price)
+    print "finish"
+    plt.plot(years, price, 'b*',label="$cos(x^2)$")#label=$cos(x^2)$) label to the lines.
+#   label=cos(x^2)
+    plt.plot(years, price, 'r')
+    plt.xlabel("years(+2000)")
+    plt.ylabel("housing average price(*2000 yuan)")
+    plt.ylim(0, 15)
+    plt.title('line_regression & gradient decrease')
+    plt.legend()
+    print "FINISH"
+    matplotlib.use = "figure"
+    plt.show()
+    print "FINISH1"
